@@ -26,7 +26,7 @@ import { enhanceComposition, getStaticComposition } from "../lib/canvas";
 export async function getServerData({
   query,
 }: GetServerDataProps): GetServerDataReturn {
-  const composition = await getStaticComposition("wordpress");
+  const composition = await getStaticComposition("woocommerce");
   await enhanceComposition(composition);
   return {
     status: 200,
@@ -36,7 +36,7 @@ export async function getServerData({
 
 const clientContext = createUniformContext();
 
-const WordPressPage = (props: PageProps) => {
+const WooCommercePage = (props: PageProps) => {
   const { serverData } = props;
   const { composition } = (serverData as any) || {};
 
@@ -48,12 +48,12 @@ const WordPressPage = (props: PageProps) => {
 
   return (
     <div>
-      <RussHeader />
-      <h1 className="text-7xl">This is the WordPress Page!</h1>
+      <RussHeader background="bg-orange-500" />
+      <h1 className="text-7xl">This is the WooCommerce Page!</h1>
       <RussCta
-        title="Buy WordPress Now!"
+        title="Buy WooCommerce Now!"
         subtitle="This is your chance to SAVE!"
-        buttonText="BUY WORDPRESS!"
+        buttonText="BUY WOOCOMMERCE!"
       />
       <UniformContext
         context={clientContext}
@@ -70,9 +70,9 @@ const WordPressPage = (props: PageProps) => {
           <UniformSlot name="content" />
         </UniformComposition>
       </UniformContext>
-      <RussFooter />
+      <RussFooter background="bg-orange-500" />
     </div>
   );
 };
 
-export default WordPressPage;
+export default WooCommercePage;

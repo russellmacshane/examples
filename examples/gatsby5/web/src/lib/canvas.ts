@@ -30,6 +30,11 @@ export const getStaticComposition = async (slug: string) => {
   return composition;
 };
 
+export const getCompositionById = async (compositionId: string) => {
+  const { composition } = await client.getCompositionById({ compositionId });
+  return composition;
+};
+
 export async function enhanceComposition(composition: RootComponentInstance) {
   await enhance({
     composition,

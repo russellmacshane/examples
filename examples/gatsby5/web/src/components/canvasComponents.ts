@@ -5,3 +5,4 @@ import "./GenericCard";
 import "./GenericGrid";
 import "./OfferingCard";
 import "./OfferingGrid";
+import "./RussHero";

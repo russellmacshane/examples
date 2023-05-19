@@ -1,8 +1,19 @@
 import path from "path";
 import { enhanceComposition } from "./src/lib/canvas";
 import { RootComponentInstance } from "@uniformdev/canvas/.";
+import { execSync } from "child_process";
 
-exports.createPages = async function ({ actions, graphql }) {
+const pluginDirectory = path.resolve(__dirname, '../uniform-source-plugin');
+
+// Install plugin dependencies
+console.log('Installing uniform-source-plugin dependencies');
+execSync('npm install', { cwd: pluginDirectory });
+
+// Run uniform:download-manifest script
+console.log('Downloading Uniform manifest');
+execSync('npm run uniform:download-manifest');
+
+exports.createPages = async function ({ actions, graphql }: any) {
   const { data } = await graphql(`
     query {
       allCompositions {
@@ -25,6 +36,7 @@ exports.createPages = async function ({ actions, graphql }) {
       }
     }
   `);
+  
 
   const compositions = data.allCompositions.compositions.map((c: any) =>
     parseComposition(c.node)

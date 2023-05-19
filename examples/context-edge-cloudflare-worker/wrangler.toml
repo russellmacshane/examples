@@ -1,6 +1,6 @@
-name = "your-worker-name"
+name = "russ-worker-test"
 main = "src/index.ts"
-account_id = "f39f700e75c45960a1b4e1ad200acd82"
+account_id = "2343e56986ee37406d55464b753fd0d5"
 route = ""
 workers_dev = true
 compatibility_date = "2023-04-11"
@@ -9,4 +9,4 @@ compatibility_date = "2023-04-11"
 command = "npm install && npm run download:manifest && npm run build"
 
 [vars]
-ORIGIN_URL = "yoursite.z5.web.core.windows.net"
+ORIGIN_URL = "69895ea401.nxcli.net"

@@ -1,4 +1,4 @@
-name = "your-worker-name"
+name = "russ-worker-test"
 main = "src/index.ts"
 account_id = "2343e56986ee37406d55464b753fd0d5"
 route = ""
